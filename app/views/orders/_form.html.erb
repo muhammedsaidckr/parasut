@@ -18,17 +18,17 @@
 
   <div>
     <%= form.label :gross_amount, style: "display: block" %>
-    <%= form.text_field :gross_amount %>
+    <%= form.number_field :gross_amount %>
   </div>
 
   <div>
     <%= form.label :discount_amount, style: "display: block" %>
-    <%= form.text_field :discount_amount %>
+    <%= form.number_field :discount_amount %>
   </div>
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.collection_select :category_id, @categories, :id, :name, {:prompt => 'Select Category'}   %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name, {:prompt => 'Select Category'}   %>
   </div>
 
   <div>
