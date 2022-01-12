@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
     create_table :orders do |t|
       t.integer :currency_type, default: 0, null: false
       t.decimal :gross_amount, null: false
-      t.decimal :discount_amount
+      t.decimal :discount_amount, default: 0
       t.decimal :net_amount, null: false
       t.bigint :category_id
 
