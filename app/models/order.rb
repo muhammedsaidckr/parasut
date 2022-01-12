@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   validates :currency_type, presence: true
-  validates :gross_amount, presence: true, numericality: true, comparison: { greater_than: :discount_amount }
-  validates :discount_amount, numericality: true
+  validates :gross_amount, presence: true, numericality: true
+  validates :discount_amount, allow_nil: true,  numericality: true, comparison: { less_than: :gross_amount }
 
   belongs_to :category, class_name: "Category", optional: true
   enum currency_type: {
@@ -10,7 +10,11 @@ class Order < ApplicationRecord
     EUR: 2
   }
 
-  before_create do
-    self.net_amount = self.gross_amount - self.discount_amount
+  before_save do
+    if self.discount_amount
+      self.net_amount = self.gross_amount - self.discount_amount
+    else
+      self.net_amount = self.gross_amount
+    end
   end
 end
