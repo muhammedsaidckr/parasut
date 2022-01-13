@@ -1,14 +1,18 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+<div class="card">
+  <div class="card-header">
+    <h1>Kategoriler</h1>
+  </div>
+  <div class="card-body">
+    <div id="categories">
+      <ul class="list-group">
+        <% @categories.each do |category| %>
+          <%= render category %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to "New category", new_category_path %>
+  </div>
 </div>
-
-<%= link_to "New category", new_category_path %>

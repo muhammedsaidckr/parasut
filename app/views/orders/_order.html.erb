@@ -1,27 +1,30 @@
-<div id="<%= dom_id order %>">
-  <p>
-    <strong>Currency type:</strong>
-    <%= order.currency_type %>
-  </p>
-
-  <p>
-    <strong>Gross amount:</strong>
-    <%= order.gross_amount %>
-  </p>
-
-  <p>
-    <strong>Discount amount:</strong>
-    <%= order.discount_amount %>
-  </p>
-
-  <p>
-    <strong>Net amount:</strong>
-    <%= order.net_amount %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= order.category ? order.category.name : '' %>
-  </p>
-
+<div class="card">
+  <div class="card-header">
+    <h3 class="h4">Siparis Detayi</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4">
+        <strong>Para Birimi</strong><br>
+        <%= order.currency_type %>
+      </div>
+      <div class="col-4">
+        <strong>Kategori</strong><br>
+        <%= order.category ? order.category.name : '-' %>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <strong>Brut Tutar</strong><br>
+        <%= order.gross_amount %>
+      </div>
+      <div class="col-4">
+        <strong>Indirim Tutari</strong><br>
+        <%= order.discount_amount %>
+      </div>
+      <div class="col-4">
+        <strong>Net Tutar</strong><br>
+        <%= order.net_amount %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -10,28 +10,48 @@
       </ul>
     </div>
   <% end %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3 pb-2 mx-2 px-0 border-bottom">
+        <div class="col-6 px-0">
+          <%= form.label :currency_type, style: "display: block" %>
+        </div>
+        <div class="col-6">
+          <%= form.select :currency_type, Order.currency_types.keys, {}, class: "form-select" %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :currency_type, style: "display: block" %>
-    <%= form.select :currency_type, Order.currency_types.keys  %>
+      <div class="row mb-3 pb-2 mx-2 px-0 border-bottom">
+        <div class="col-6 px-0">
+          <%= form.label :gross_amount, style: "display: block" %>
+        </div>
+        <div class="col-6">
+          <%= form.number_field :gross_amount, step: "any", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 pb-2 mx-2 px-0 border-bottom">
+        <div class="col-6 px-0">
+          <%= form.label :discount_amount, style: "display: block" %>
+        </div>
+        <div class="col-6">
+          <%= form.number_field :discount_amount, step: "any", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row mb-3 pb-2 mx-2 px-0 border-bottom">
+        <div class="col-6 px-0">
+          <%= form.label :category_id, style: "display: block" %>
+        </div>
+        <div class="col-6">
+          <%= form.collection_select :category_id, Category.order(:name), :id, :name, { :prompt => 'Kategori Seçiniz' }, { class: "form-select" } %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :gross_amount, style: "display: block" %>
-    <%= form.number_field :gross_amount %>
-  </div>
-
-  <div>
-    <%= form.label :discount_amount, style: "display: block" %>
-    <%= form.number_field :discount_amount %>
-  </div>
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name, {:prompt => 'Select Category'}   %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

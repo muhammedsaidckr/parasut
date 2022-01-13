@@ -3,8 +3,8 @@
 <%= render @order %>
 
 <div>
-  <%= link_to "Edit this order", edit_order_path(@order) %> |
-  <%= link_to "Back to orders", orders_path %>
+  <%= link_to "Siparişi düzenle", edit_order_path(@order) %> |
+  <%= link_to "Siparişlere dön", orders_path %>
 
-  <%= button_to "Destroy this order", @order, method: :delete %>
+  <%= button_to "Sil", @order, method: :delete, class: "btn btn-danger mt-2" %>
 </div>

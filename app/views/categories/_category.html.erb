@@ -1,7 +1,5 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<li id="<%= dom_id category %>" class="list-group-item">
 
-</div>
+  <strong>Kategori Adı: </strong>
+  <%= link_to category.name, category %>
+</li>

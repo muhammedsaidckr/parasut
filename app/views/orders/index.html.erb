@@ -1,14 +1,57 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Orders</h1>
+<div class="card">
+  <div class="card-header">
+    <h1>Siparişler</h1>
+  </div>
+  <div class="card-body">
+    <div id="orders">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Para Birimi</th>
+          <th scope="col">Brüt Tutar</th>
+          <th scope="col">İndirimli Tutar</th>
+          <th scope="col">Net Tutar</th>
+          <th scope="col">Kategori</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr id="<%= dom_id order %>">
+            <td>
+              <%= order.currency_type %>
+            </td>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
+            <td>
+              <%= order.gross_amount %>
+            </td>
+
+            <td>
+              <%= order.discount_amount %>
+            </td>
+
+            <td>
+              <%= order.net_amount %>
+            </td>
+
+            <td>
+              <%= order.category ? order.category.name : '-' %>
+            </td>
+            <td>
+              <%= link_to "Detayları İncele", order %>
+            </td>
+            <td>
+              <%= button_to "Sil", order, method: :delete, class: "text-danger btn btn-outline p-0", data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Yeni Sipariş Oluştur", new_order_path %>
+  </div>
 </div>
-
-<%= link_to "New order", new_order_path %>
