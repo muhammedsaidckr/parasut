@@ -5,6 +5,13 @@
     <h1>Siparişler</h1>
   </div>
   <div class="card-body">
+    <%= form_with url: "/orders", method: :get do |form| %>
+      <%= form.collection_select :category_id, Category.order(:name), :id, :name, { :prompt => 'Kategori Seçiniz', :selected => @category_id }, { class: "form-select" } %>
+      <div class="mt-2">
+        <%= form.submit "Filtrele", class: "btn btn-sm btn-primary" %>
+        <%= link_to "Temizle", "orders", class: "btn btn-sm btn-danger" %>
+      </div>
+    <% end %>
     <div id="orders">
       <table class="table">
         <thead>

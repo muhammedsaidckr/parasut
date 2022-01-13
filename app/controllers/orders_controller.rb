@@ -3,7 +3,12 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    if params[:category_id]
+      @orders = Order.where(category_id: params[:category_id])
+      @category_id = params[:category_id]
+    else
+      @orders = Order.all
+    end
   end
 
   # GET /orders/1 or /orders/1.json
@@ -59,13 +64,14 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:currency_type, :gross_amount, :discount_amount, :net_amount, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def order_params
+    params.require(:order).permit(:currency_type, :gross_amount, :discount_amount, :net_amount, :category_id)
+  end
 end
