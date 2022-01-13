@@ -7,12 +7,16 @@
     <div id="categories">
       <ul class="list-group">
         <% @categories.each do |category| %>
-          <%= render category %>
+          <li id="<%= dom_id category %>" class="list-group-item">
+
+            <strong>Kategori Adı: </strong>
+            <%= link_to category.name, category %>
+          </li>
         <% end %>
       </ul>
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to "New category", new_category_path %>
+    <%= link_to "Yeni Kategori", new_category_path %>
   </div>
 </div>
