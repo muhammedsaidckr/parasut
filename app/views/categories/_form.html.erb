@@ -1,8 +1,7 @@
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
     <div class="text-danger">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being
-        saved:</h2>
+      <h2>Doğrulama başarısız oldu: <%= pluralize(category.errors.count, "hata") %></h2>
 
       <ul>
         <% category.errors.each do |error| %>

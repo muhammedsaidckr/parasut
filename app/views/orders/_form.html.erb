@@ -1,7 +1,7 @@
 <%= form_with(model: order) do |form| %>
   <% if order.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <h2>Doğrulama başarısız oldu: <%= pluralize(order.errors.count, "hata") %></h2>
 
       <ul>
         <% order.errors.each do |error| %>
@@ -26,7 +26,7 @@
           <%= form.label :gross_amount, style: "display: block" %>
         </div>
         <div class="col-6">
-          <%= form.number_field :gross_amount, step: "any", class: "form-control" %>
+          <%= form.number_field :gross_amount, step: "any", class: "form-control", required: 'true'  %>
         </div>
       </div>
 

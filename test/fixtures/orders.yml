@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  currency_type: 1
-  gross_amount: 9.99
-  discount_amount: 9.99
-  net_amount: 9.99
-  category_id: 
+  currency_type: 0
+  gross_amount: 10
+  discount_amount: 2
+  net_amount: 8
+  category_id:
 
 two:
   currency_type: 1
   gross_amount: 9.99
-  discount_amount: 9.99
+  discount_amount: 0
   net_amount: 9.99
-  category_id: 
+  category_id:

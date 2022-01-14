@@ -6,5 +6,5 @@
   <%= link_to "Kategoriyi Düzenle", edit_category_path(@category) %> |
   <%= link_to "Kategorilere Dön", categories_path %>
 
-  <%= button_to "Sil", @category, method: :delete, class: "btn btn-danger mt-2" %>
+  <%= button_to "Sil", @category, method: :delete, onclick: "if (!confirm('Kategoriyi silmeniz halinde, kategoriye ait bütün kayıtlar silinecektir? Emin misiniz?')) { return false }", class: "btn btn-danger mt-2" %>
 </div>

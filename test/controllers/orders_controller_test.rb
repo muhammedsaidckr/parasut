@@ -34,7 +34,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order" do
-    patch order_url(@order), params: { order: { category_id: @order.category_id, currency_type: @order.currency_type, discount_amount: @order.discount_amount, gross_amount: @order.gross_amount, net_amount: @order.net_amount } }
+    patch order_url(@order), params: { order: { category_id: @order.category_id, currency_type: @order.currency_type, discount_amount: @order.discount_amount, gross_amount: @order.gross_amount } }
     assert_redirected_to order_url(@order)
   end
 
