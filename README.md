@@ -1,24 +1,22 @@
-# README
+# PARAŞÜT
+## Kullanılan Teknolojiler
+* Ruby 3.1.0
+* Rails 7.0.1
+* Postgresql
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Uygulamayı localde ayağa kaldırma aşamaları
 
-Things you may want to cover:
+Database oluşturmak için 
+```
+rails db:create
+```
 
-* Ruby version
+Migrationları oluşturmak için
+```
+rails db:migrate
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Local Server
+```
+rails s
+```
